@@ -36,8 +36,33 @@
         <li class="a06"><img src="img/animals/a06.png" alt=""></li>
     </ul>
 </div>
+
 <script>
+   const animals = document.querySelector('.animal'); //ul 
+   const animal = document.querySelectorAll('.animal>li');  // li 
+   const cover = document.querySelector('.cover'); 
+   const bigImg = document.querySelector('#bigImg');
    
+   animals.addEventListener('click',e=>{
+    const selected = e.target ; //클릭된 li가 변수에 저장 
+    tab(selected)
+   })
+
+   const tab = (selected) => {
+        let srcValue = selected.firstChild.getAttribute('src');
+        console.log(srcValue)
+        bigImg.setAttribute('src',srcValue)
+        let bg = window.getComputedStyle(selected).backgroundColor;
+        console.log(bg)
+        cover.style.backgroundColor = bg;
+   }
+
+//getAttribute('해당속성명') 해당속성의 현재 값을 반환 
+//setAttribute('해당속성명','새값') 해당속성의 값을 새값으로 다시 지정  
+//firstChild , lastChild , childNodes[0]
+//window.getComputedStyle(대상).스타일속서명  대상의 스타일 속성을 가지고 올때 
+
+
 </script>
 </body>
 </html>
