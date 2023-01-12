@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <ul>
+    <ul id="listAll">
         <li class='list'>1</li>
         <li class='list'>2</li>
         <li class='list'>3</li>
@@ -21,7 +21,24 @@
         <li class='list'>5</li>
     </ul>
     <script>
+        const listAll= document.querySelector('#listAll');
+        const list = document.querySelectorAll('.list');
 
+        function selectList(selectedLi){
+            list.forEach((li)=>{
+                li.classList.remove('on')
+            })
+            if(selectedLi){
+                selectedLi.classList.add('on')
+            }
+        }
+        //ul 에 이벤트 위임 
+        listAll.addEventListener('click', e => {
+            const selectedLi = e.target ; 
+            console.log(selectedLi)
+            selectList(selectedLi)
+        })
+        
     </script>
 </body>
 </html>

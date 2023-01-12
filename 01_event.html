@@ -29,7 +29,32 @@
         </div>
     </div>
     <script>
-       
+        const outerbox = document.querySelector('.outerbox')
+        const middlebox = document.querySelector('.middlebox')
+        const innerbox = document.querySelector('.innerbox')
+
+       outerbox.addEventListener('click',(e)=>{
+            console.log('outerbox')
+           // console.log(e.target) // 현재이벤트가 발생한 위치에 있는 element 
+        })
+        middlebox.addEventListener('click',(e)=>{
+            console.log(' middlebox')
+        
+        }) 
+        innerbox.addEventListener('click',(e)=>{
+            console.log('innerbox')
+            e.stopPropagation()
+           
+        })
     </script>
+    <!-- 
+    특정 요소에서 이벤트가 발생하려면,
+    이벤트가 DOM 최상위 요소부터 아래로 전파가 되다
+    이벤트 타켓에 도착해 실행되고 
+    다시 DOM 트리 최상의 요소 까지 타고 올라간다. 
+    
+    이벤트 객체가 가지고 있는 메서드 stopPropagation() 이벤트 전파 취소 
+
+     -->
 </body>
 </html>
