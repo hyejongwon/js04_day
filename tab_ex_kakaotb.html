@@ -14,14 +14,14 @@
         <div class="tab_title clearfix">
             <h3><a href="#">카카오TV</a></h3>
             <ul class="clearfix title_list">
-                <li data-num='0'><a href="#">TV하일라이트</a></li>
+                <li data-num='0' class="on"><a href="#">TV하일라이트</a></li>
                 <li data-num='1'><a href="#">이제는 말할 수 있다!</a></li>
                 <li data-num='2'><a href="#">스포츠 명장면</a></li>
                 <li data-num='3'><a href="#">예상치 못한 습격</a></li>
             </ul>
         </div>
         <div class="tab_contents">
-            <ul class="clearfix tab_content">
+            <ul class="clearfix tab_content on">
                 <li>
                     <a href="#">
                         <span><img src="img/kakaotv/tab1.jpg" alt=""></span>
@@ -133,6 +133,32 @@
     </div>
 </div>
 <script>
+  const titleList= document.querySelector('.title_list');
+  const title = document.querySelectorAll('.title_list>li');
+  const content = document.querySelectorAll('.tab_content');
+//제목을 클릭 했을때 실행할 함수 (이벤트 위임해서 사용)
+  titleList.addEventListener('click',e =>{
+    let selectTitle = e.target ; 
+    let dataNumer = selectTitle.dataset.num ;
+    titleUpdata(selectTitle)
+    contentUpdata(dataNumer);
+
+  }) 
+ //제목에 클래스가 바뀔 함수 
+  const titleUpdata = (selectTitle) => {
+    title.forEach(ele=>{
+        ele.classList.remove('on');
+    })
+    selectTitle.classList.add('on')
+  }
+
+//제목클릭시 보여질 내용이 바뀔 함수 
+  const contentUpdata = (dataNumer) => {
+    content.forEach(ele=>{
+        ele.classList.remove('on')
+    })
+    content[dataNumer].classList.add('on')
+  }
   
 </script>
 </body>

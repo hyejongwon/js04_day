@@ -31,7 +31,31 @@
         </div>
     </div>
     <script>
-      
+        const title = document.querySelector('.tabtitle'); 
+        const titleList = document.querySelectorAll('.tabtitle>a');
+        const tabImg = document.querySelectorAll('.tabImg');
+        //이벤트 
+        title.addEventListener('click',(e)=>{
+            let selectList = e.target  ; 
+            let datatNum = selectList.dataset.num;
+            titleFnc(selectList) // 현재 클릭 된 요소가 매개변수로 전달된다. 
+            contentFnc(datatNum) // 현재 클릭 된 요소의 data-num 값이 매개변수로 전달된다. 
+        })
+
+        //제목 함수 
+        function titleFnc(selectList){
+            titleList.forEach((ele) => {
+                ele.classList.remove('on');
+            })
+            selectList.classList.add('on');
+        }
+        //내용 함수 
+        function contentFnc(datatNum){
+            tabImg.forEach((ele) => {
+                ele.classList.remove('on');
+            })
+            tabImg[datatNum].classList.add('on')
+        }
     </script>
 </body>
 </html>

@@ -14,7 +14,7 @@ body{font-family: 'Nanum Gothic',sans-serif;}
 .tab_title ul li.on a{text-decoration: underline;color:#118eff;}
 .tab_contents{position: relative}
 .tab_contents ul{position: absolute;left:0;top:0;display: none}
-.tab_contents ul:first-child{display: block}
+.tab_contents ul.on{display: block}
 .tab_contents li{float: left;width: 154px;height: 146px;margin-left: 13px;}
 .tab_contents li:first-child{margin-left: 0}
 .tab_contents li a{color:#222;font-size: 12px;letter-spacing: -1px;}
