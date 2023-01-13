@@ -10,8 +10,33 @@
 <body>
   <div class="face"></div>   
   <script>
-      
+        const face = document.querySelector('.face');
+        let leftValue = window.getComputedStyle(face).left;
+        leftValue = parseInt(leftValue) ; //정수로 
+        let topValue = window.getComputedStyle(face).top ;
+        topValue = parseInt(topValue) ; //정수로 
+
+        //console.log(leftValue)
+        //console.log(topValue)
+
+        window.addEventListener('keydown',(e) => {
+          if(e.keyCode == '37'){ // 왼쪽 방향키 
+            leftValue-=30
+            face.style.left=`${leftValue}px`
+          }else if(e.keyCode=='39'){ // 우측 방향키 
+            leftValue+=30
+            face.style.left=`${leftValue}px`;
+          }else if(e.keyCode=='38'){ // 위 방향키 
+            topValue-=30
+            face.style.top=`${topValue}px`;
+          }else if(e.keyCode=='40'){//아래  방향키 
+            topValue+=30
+            face.style.top=`${topValue}px`;
+          }
+        })
+
+        
          
   </script>
-</body>
+</body> 
 </html>
