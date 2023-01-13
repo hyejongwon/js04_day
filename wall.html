@@ -7,8 +7,6 @@
     @import url(css/reset.css);
       #wall{width: 800px;height: 600px;margin: 100px auto;background: url(img/paper/b01.png);position: relative}
 
-      
-      
       h1{position: absolute;left:620px;top:80px;width: 120px;text-align: center}
       .list{position: absolute;left:0;bottom:0;width: 100%;height: 100px;border-top:1px solid #666;background: rgba(0,0,0,0.65);display: flex;}
 
@@ -33,9 +31,38 @@
   </ul>
 </div>
 <script>
-    
+  const wall = document.querySelector('#wall') ; 
+  const paperBox = document.querySelector('.list');
+  const paperList = document.querySelectorAll('.list>li');
+  const title =  document.querySelector('h1');
 
+  paperBox.addEventListener('click',(e) => {
+    const selectPaper = e.target ; 
+    tabTitle(selectPaper)
+    tabContent(selectPaper)
+  })
+  //탭선택부분 
+  const tabTitle = (selectPaper) => {
+    paperList.forEach(ele=>{
+      ele.classList.remove('on');
+    })
+    selectPaper.classList.add('on');
+  }
+  //탭컨텐츠 
+  const tabContent = (selectPaper) => { 
+    let src = selectPaper.childNodes[0].getAttribute('src');
+    let titleTxt  = selectPaper.childNodes[0].getAttribute('alt');
+    console.log(`${src} : ${titleTxt}`)
+    title.innerText = titleTxt;
+    wall.style.backgroundImage = `url(${src})` ; 
+  }
+    
+//getAttribute('태그속성명') 
+//innerText
+//classList.add('클래스명') classList.remove('클래스명')
+//firstChild , lastChild , childNodes[0]
 </script>
+
     
 </body>
 </html>
